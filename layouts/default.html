@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta name="keywords" content="Cybersicherheit, KMU, IT-Sicherheit, Penetrationstests, E-Mail-Sicherheit, Schwachstellenscanning, IT-Risikoanalyse, Sicherheitszertifizierung, TISAX, ISO 27001, Endpoint-Schutz">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}/images/og-image.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+  <meta name="twitter:description" content="{{ page.description | default: site.description }}">
+  <meta name="twitter:image" content="{{ site.url }}/images/twitter-card.jpg">
+
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Eichinger Cybersec",
+    "url": "{{ site.url }}",
+    "logo": "{{ site.url }}/images/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+49-123-4567890",
+      "contactType": "customer service",
+      "areaServed": "DE",
+      "availableLanguage": ["Deutsch", "English"]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/eichingercybersec",
+      "https://twitter.com/eichingercybersec"
+    ]
+  }
+  </script>
+
+  <!-- Google Font: Poppins for a modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Grundlegende Reset- und Layout-Stile */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #F7F5F2; /* Off-white, natural tone */
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    header {
+      background: linear-gradient(to right, #35524A, #7A9E7E); /* Natürliche, erdige Grüntöne */
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1, h2 {
+      margin-bottom: 15px;
+    }
+    
+    p {
+      margin-bottom: 20px;
+    }
+    
+    ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    
+    ul li {
+      margin-bottom: 8px;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  {{ content }}
+  <footer>
+    &copy; 2025 Eichinger Cybersec. Alle Rechte vorbehalten.
+  </footer>
+</body>
+</html>
