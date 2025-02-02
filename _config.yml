@@ -2,4 +2,4 @@ title: "Eichinger Cybersec – Cybersicherheit für KMU"
 description: "Eichinger Cybersec bietet maßgeschneiderte Sicherheitslösungen für kleine und mittelständische Unternehmen. Erfahren Sie mehr über E-Mail-Sicherheit, Penetrationstests, Schwachstellenscanning, IT-Risikoanalyse, Sicherheitszertifizierung (TISAX und ISO 27001) und vieles mehr."
 baseurl: ""
 url: "https://www.eichingercybersec.de"
-theme: jekyll-theme-cayman
+remote_theme: zerostaticthemes/jekyll-serif-theme
