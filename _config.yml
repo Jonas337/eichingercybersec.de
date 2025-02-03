@@ -3,3 +3,11 @@ description: "Eichinger Cybersec bietet maßgeschneiderte Sicherheitslösungen f
 baseurl: "/"
 url: "https://www.eichingercybersec.de"
 remote_theme: zerostaticthemes/jekyll-serif-theme
+# Navigation menu for the theme (adjust the key if your theme expects a different name)
+main_menu:
+  - title: "Home"
+    url: /
+  - title: "Leistungen"
+    url: /leistungen/
+  - title: "Kontakt"
+    url: /kontakt/
