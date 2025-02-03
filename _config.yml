@@ -11,3 +11,6 @@ main_menu:
     url: /leistungen/
   - title: "Kontakt"
     url: /kontakt/
+    # Add the following to activate the plugin
+plugins:
+  - jekyll-remote-theme
