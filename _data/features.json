@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Freie Beratung",
+    "description": "Neue Kunden erhalten eine unverbindliche Erstberatung.",
+    "image": {
+      "url": "images/features/noun_branding_1885335.svg",
+      "width": 80,
+      "height": 80
+    }
+  },
+  {
+    "title": "Zertifizierte Fachkraft",
+    "description": "Unser Team besteht ausschließlich aus zertifizierten Experten.",
+    "image": {
+      "url": "images/features/noun_The Process_1885341.svg",
+      "width": 80,
+      "height": 80
+    }
+  },
+  {
+    "title": "Erfahrene Profis",
+    "description": "Wir verfügen über langjährige Erfahrung in unserem Fachgebiet.",
+    "image": {
+      "url": "images/features/noun_3d modeling_1885342.svg",
+      "width": 80,
+      "height": 80
+    }
+  }
+]
