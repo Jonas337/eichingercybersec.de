@@ -1,0 +1,113 @@
+---
+const year = new Date().getFullYear();
+
+const navLinks = [
+  { href: '/', label: 'Startseite' },
+  { href: '/dienstleistungen', label: 'Dienstleistungen' },
+  { href: '/ueber-uns', label: 'Über uns' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/team', label: 'Team' },
+];
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Eichinger Cybersec</h3>
+        <p>Cybersicherheit für kleine und mittelständische Unternehmen – zuverlässig, effizient und kostengünstig.</p>
+      </div>
+
+      <div class="footer-nav">
+        <h4>Navigation</h4>
+        <ul>
+          {navLinks.map(({ href, label }) => (
+            <li><a href={href}>{label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="/#kontakt">Kontaktformular</a></li>
+          <li><a href="https://www.linkedin.com/in/jonas337/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {year} Eichinger Cybersec. Alle Rechte vorbehalten.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-primary);
+    color: rgba(255, 255, 255, 0.85);
+    padding-block: var(--space-3xl) var(--space-xl);
+    margin-top: auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .footer-brand h3 {
+    color: #fff;
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer-brand p {
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    opacity: 0.8;
+  }
+
+  .footer-nav h4,
+  .footer-contact h4 {
+    color: #fff;
+    margin-bottom: var(--space-md);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-nav ul,
+  .footer-contact ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer-nav a,
+  .footer-contact a {
+    font-size: var(--text-sm);
+    opacity: 0.75;
+    transition: opacity var(--transition-fast);
+  }
+
+  .footer-nav a:hover,
+  .footer-contact a:hover {
+    opacity: 1;
+  }
+
+  .footer-bottom {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+    font-size: var(--text-xs);
+    opacity: 0.6;
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+  }
+</style>

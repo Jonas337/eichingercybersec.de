@@ -1,0 +1,183 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { blogPostingSchema, breadcrumbSchema } from '../utils/jsonld';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  author: string;
+  tags: string[];
+  slug: string;
+  heroImage?: string;
+}
+
+const { title, description, pubDate, updatedDate, author, tags, slug, heroImage } = Astro.props;
+
+const jsonLd = [
+  blogPostingSchema({ title, description, pubDate, updatedDate, author, slug, image: heroImage }),
+  breadcrumbSchema([
+    { name: 'Startseite', path: '/' },
+    { name: 'Blog', path: '/blog' },
+    { name: title, path: `/blog/${slug}` },
+  ]),
+];
+
+const formattedDate = pubDate.toLocaleDateString('de-DE', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout
+  title={`${title} | Eichinger Cybersec Blog`}
+  description={description}
+  keywords={tags.join(', ')}
+  ogType="article"
+  ogImage={heroImage}
+  jsonLd={jsonLd}
+>
+  <article class="blog-post">
+    <div class="container">
+      <header class="post-header">
+        <div class="post-meta">
+          <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+          <span class="separator">&middot;</span>
+          <span>{author}</span>
+        </div>
+        <h1>{title}</h1>
+        {tags.length > 0 && (
+          <div class="tags">
+            {tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </header>
+      <div class="prose">
+        <slot />
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .blog-post {
+    padding-block: var(--space-3xl);
+  }
+
+  .post-header {
+    max-width: 750px;
+    margin-inline: auto;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .post-header h1 {
+    margin-top: var(--space-md);
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+
+  .tag {
+    background: var(--color-accent-light);
+    color: var(--color-secondary);
+    padding: 0.2em 0.75em;
+    border-radius: 100px;
+    font-size: var(--text-xs);
+    font-weight: 500;
+  }
+
+  .prose {
+    max-width: 750px;
+    margin-inline: auto;
+  }
+
+  .prose :global(h2) {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .prose :global(h3) {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+  }
+
+  .prose :global(p) {
+    margin-bottom: var(--space-lg);
+    color: var(--color-text);
+    line-height: 1.8;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-bottom: var(--space-lg);
+    padding-left: var(--space-xl);
+  }
+
+  .prose :global(ul) {
+    list-style: disc;
+  }
+
+  .prose :global(ol) {
+    list-style: decimal;
+  }
+
+  .prose :global(li) {
+    margin-bottom: var(--space-sm);
+    line-height: 1.7;
+  }
+
+  .prose :global(a) {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .prose :global(a:hover) {
+    color: var(--color-secondary);
+  }
+
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--color-accent);
+    padding-left: var(--space-lg);
+    margin-block: var(--space-lg);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .prose :global(code) {
+    background: var(--color-border);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+
+  .prose :global(pre) {
+    background: var(--color-primary);
+    color: #e2e8f0;
+    padding: var(--space-lg);
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-block: var(--space-lg);
+  }
+
+  .prose :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+</style>

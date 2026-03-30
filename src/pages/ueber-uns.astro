@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { organizationSchema, breadcrumbSchema } from '../utils/jsonld';
+
+const jsonLd = [
+  organizationSchema(),
+  breadcrumbSchema([
+    { name: 'Startseite', path: '/' },
+    { name: 'Über uns', path: '/ueber-uns' },
+  ]),
+];
+---
+
+<BaseLayout
+  title="Über uns | Eichinger Cybersec"
+  description="Erfahren Sie mehr über Eichinger Cybersec – Ihr Partner für Cybersicherheit im Mittelstand. Unsere Mission, Werte und was uns antreibt."
+  keywords="Cybersicherheit Beratung, IT-Sicherheit KMU, Sicherheitsstrategie, Cybersecurity Unternehmen Deutschland"
+  jsonLd={jsonLd}
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Über uns</h1>
+      <p>Ihr Partner für praxisnahe Cybersicherheit im Mittelstand.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-grid">
+      <div class="content-main reveal">
+        <h2>Unsere Mission</h2>
+        <p>
+          Cyberangriffe sind längst keine Bedrohung mehr, die nur Großkonzerne betrifft. Kleine und mittelständische Unternehmen stehen zunehmend im Fokus von Angreifern – oft mit gravierenden Folgen. Eichinger Cybersec wurde gegründet, um genau diese Lücke zu schließen.
+        </p>
+        <p>
+          Unsere Mission ist es, KMU mit professionellen, aber pragmatischen Sicherheitslösungen zu schützen. Wir glauben, dass gute Cybersicherheit kein Luxus sein muss – sondern ein erreichbares Ziel für jedes Unternehmen.
+        </p>
+
+        <h2>Was uns auszeichnet</h2>
+        <div class="values-list">
+          <div class="value reveal">
+            <h3>Praxisorientiert</h3>
+            <p>Wir liefern keine theoretischen Konzepte, sondern umsetzbare Lösungen, die in Ihrem Unternehmensalltag funktionieren.</p>
+          </div>
+          <div class="value reveal">
+            <h3>Partnerschaftlich</h3>
+            <p>Wir verstehen uns als langfristiger Partner, nicht als einmaliger Dienstleister. Ihre Sicherheit ist ein fortlaufender Prozess, den wir gemeinsam gestalten.</p>
+          </div>
+          <div class="value reveal">
+            <h3>Transparent</h3>
+            <p>Wir kommunizieren offen und verständlich – ohne unnötigen Fachjargon. Sie verstehen immer, was wir tun und warum.</p>
+          </div>
+          <div class="value reveal">
+            <h3>Aktuell</h3>
+            <p>Die Bedrohungslage ändert sich ständig. Wir bilden uns kontinuierlich weiter, um Ihnen stets den bestmöglichen Schutz zu bieten.</p>
+          </div>
+        </div>
+
+        <h2>Unser Ansatz</h2>
+        <p>
+          Jedes Unternehmen ist anders. Deshalb beginnen wir jedes Engagement mit einer gründlichen Analyse Ihrer individuellen Situation. Darauf aufbauend entwickeln wir eine Sicherheitsstrategie, die zu Ihren Anforderungen, Ihrem Budget und Ihren Ressourcen passt.
+        </p>
+        <p>
+          Von der ersten Risikoanalyse über die Implementierung konkreter Maßnahmen bis hin zur Vorbereitung auf Zertifizierungen – wir begleiten Sie auf dem gesamten Weg zu besserer Cybersicherheit.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: #fff;
+    padding-block: var(--space-3xl);
+  }
+
+  .page-hero h1 {
+    color: #fff;
+    margin-bottom: var(--space-md);
+  }
+
+  .page-hero p {
+    font-size: var(--text-lg);
+    opacity: 0.9;
+  }
+
+  .content-main {
+    max-width: 750px;
+  }
+
+  .content-main h2 {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-lg);
+  }
+
+  .content-main h2:first-child {
+    margin-top: 0;
+  }
+
+  .content-main p {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: var(--space-lg);
+  }
+
+  .values-list {
+    display: grid;
+    gap: var(--space-xl);
+    margin-block: var(--space-xl);
+  }
+
+  .value h3 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .value p {
+    margin-bottom: 0;
+  }
+</style>

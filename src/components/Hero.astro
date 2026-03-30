@@ -1,0 +1,100 @@
+---
+---
+
+<section class="hero">
+  <div class="container hero-inner">
+    <p class="hero-eyebrow">Eichinger Cybersec</p>
+    <h1>Cybersicherheit<br />für Ihr Unternehmen</h1>
+    <p class="hero-sub">
+      Maßgeschneiderte Sicherheitslösungen für kleine und mittelständische Unternehmen – damit Sie sich auf Ihr Kerngeschäft konzentrieren können.
+    </p>
+    <div class="hero-actions">
+      <a href="/#kontakt" class="btn btn-primary">Beratung anfragen</a>
+      <a href="/dienstleistungen" class="btn btn-outline-hero">Unsere Leistungen</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 60%, var(--color-accent) 100%);
+    color: #fff;
+    padding-block: var(--space-4xl);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-inner {
+    max-width: 800px;
+  }
+
+  .hero-eyebrow {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0;
+    margin-bottom: var(--space-md);
+    animation: fadeUp 0.7s ease 0.1s forwards;
+  }
+
+  .hero h1 {
+    color: #fff;
+    margin-bottom: var(--space-xl);
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.25s forwards;
+  }
+
+  .hero-sub {
+    font-size: var(--text-lg);
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: var(--space-2xl);
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.4s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.55s forwards;
+  }
+
+  .btn-outline-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 0.75em 1.75em;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: var(--text-sm);
+    transition: all var(--transition-base);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+  }
+
+  .btn-outline-hero:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #fff;
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      min-height: auto;
+      padding-block: var(--space-3xl);
+    }
+
+    .hero-actions {
+      flex-direction: column;
+    }
+
+    .hero-actions .btn,
+    .hero-actions .btn-outline-hero {
+      text-align: center;
+      justify-content: center;
+    }
+  }
+</style>
