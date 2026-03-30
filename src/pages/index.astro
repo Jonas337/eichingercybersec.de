@@ -47,6 +47,18 @@ const jsonLd = [organizationSchema(), webSiteSchema()];
 >
   <Hero />
 
+  <section class="section intro-section">
+    <div class="container">
+      <p class="intro-text reveal">
+        Cybersicherheit ist für jedes Unternehmen unverzichtbar – besonders für den Mittelstand.
+        Eichinger Cybersec bietet Ihnen individuelle Sicherheitslösungen,
+        die Ihr Unternehmen zuverlässig vor Cyberbedrohungen schützen.
+        Von Penetrationstests über E-Mail-Sicherheit bis hin zu Zertifizierungen –
+        wir sorgen dafür, dass Ihre IT-Infrastruktur gegen aktuelle Bedrohungen gewappnet ist.
+      </p>
+    </div>
+  </section>
+
   <section class="section services-section">
     <div class="container">
       <div class="section-header reveal">
@@ -92,6 +104,18 @@ const jsonLd = [organizationSchema(), webSiteSchema()];
 </BaseLayout>
 
 <style>
+  .intro-section {
+    text-align: center;
+  }
+
+  .intro-text {
+    max-width: 800px;
+    margin-inline: auto;
+    font-size: var(--text-lg);
+    line-height: 1.8;
+    color: var(--color-text-muted);
+  }
+
   .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
