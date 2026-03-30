@@ -1,0 +1,20 @@
+{
+  "name": "eichingercybersec-website",
+  "version": "1.0.0",
+  "description": "Eichinger Cybersec – Cybersicherheit für KMU",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [],
+  "author": "Eichinger Cybersec",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.0",
+    "astro": "^6.1.1"
+  },
+  "main": "index.js",
+  "devDependencies": {}
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1B3A4B"/>
+      <stop offset="60%" stop-color="#35524A"/>
+      <stop offset="100%" stop-color="#7A9E7E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="100" y="260" font-family="sans-serif" font-size="72" font-weight="700" fill="#ffffff">Eichinger</text>
+  <text x="100" y="340" font-family="sans-serif" font-size="72" font-weight="700" fill="#ffffff">Cybersec</text>
+  <text x="100" y="400" font-family="sans-serif" font-size="28" font-weight="400" fill="#A8D5BA">Cybersicherheit für Ihr Unternehmen</text>
+  <path d="M980 180l-60 28v37c0 33.6 24 64.96 56 74.67 32-9.71 56-41.07 56-74.67v-37l-52-28z" fill="none" stroke="#A8D5BA" stroke-width="3" opacity="0.6"/>
+  <path d="M970 310l10 10 26-26" fill="none" stroke="#A8D5BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+  <line x1="100" y1="440" x2="400" y2="440" stroke="#7A9E7E" stroke-width="3" opacity="0.5"/>
+  <text x="100" y="530" font-family="sans-serif" font-size="20" fill="rgba(255,255,255,0.6)">www.eichingercybersec.de</text>
+</svg>

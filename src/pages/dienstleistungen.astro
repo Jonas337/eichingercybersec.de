@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { serviceSchema, breadcrumbSchema } from '../utils/jsonld';
+
+const services = [
+  {
+    id: 'email-sicherheit',
+    title: 'E-Mail-Sicherheit',
+    description: 'E-Mail ist der häufigste Angriffsvektor für Cyberangriffe auf Unternehmen. Phishing-E-Mails, Business Email Compromise (BEC) und Malware-Anhänge stellen eine konstante Bedrohung dar.',
+    details: 'Wir implementieren mehrschichtige E-Mail-Sicherheitslösungen: von fortschrittlichen Spam-Filtern über DMARC/DKIM/SPF-Konfiguration bis hin zu gezieltem Security-Awareness-Training für Ihre Mitarbeiter. So reduzieren wir das Risiko erfolgreicher E-Mail-basierter Angriffe erheblich.',
+  },
+  {
+    id: 'Penetrations Tests',
+    title: 'Penetrations Tests',
+    description: 'Bei einem Penetrationstest simulieren wir reale Angriffe auf Ihre IT-Infrastruktur, um Schwachstellen zu identifizieren, bevor Angreifer sie ausnutzen können.',
+    details: 'Unsere Tests umfassen externe und interne Penetrationstests, Webanwendungstests sowie Social-Engineering-Szenarien. Sie erhalten einen detaillierten Bericht mit priorisierten Empfehlungen zur Behebung gefundener Schwachstellen.',
+  },
+  {
+    id: 'Vulnerability ',
+    title: 'Vulnerability Management',
+    description: 'Regelmäßiges Vulnerability Scan ist ein wesentlicher Bestandteil einer proaktiven Sicherheitsstrategie. Wir überwachen Ihre Systeme kontinuierlich auf bekannte Sicherheitslücken.',
+    details: 'Durch automatisierte und manuelle Scans identifizieren wir veraltete Software, Fehlkonfigurationen und bekannte CVEs. Unsere regelmäßigen Reports helfen Ihnen, Sicherheitslücken zeitnah zu schließen und Ihr Risikoprofil zu verbessern.',
+  },
+  {
+    id: 'risikoanalyse',
+    title: 'IT-Risikoanalyse & Sicherheitsstrategie',
+    description: 'Eine fundierte Risikoanalyse bildet das Fundament jeder wirksamen Sicherheitsstrategie. Wir bewerten systematisch die Bedrohungslage Ihres Unternehmens.',
+    details: 'Auf Basis der Risikoanalyse entwickeln wir eine maßgeschneiderte Sicherheitsstrategie mit konkreten Maßnahmen, Priorisierung und Umsetzungsplan. So investieren Sie Ihr Sicherheitsbudget dort, wo es den größten Schutz bietet.',
+  },
+  {
+    id: 'zertifizierung',
+    title: 'Sicherheitszertifizierung (TISAX, ISO 27001 & NIS2)',
+    description: 'Sicherheitszertifizierungen wie TISAX und ISO 27001 sowie die NIS2-Richtlinie sind für viele Unternehmen Pflicht – insbesondere in der Automobilbranche, bei Großkunden und in kritischen Infrastrukturen.',
+    details: 'Wir begleiten Sie durch den gesamten Zertifizierungsprozess und die NIS2-Compliance: von der initialen Gap-Analyse über die Implementierung erforderlicher Maßnahmen und Dokumentation bis hin zur Vorbereitung auf das Audit. Unser Ziel ist eine effiziente Zertifizierung ohne unnötigen Overhead.',
+  },
+  {
+    id: 'endpoint-schutz',
+    title: 'Endpoint & Server Sicherheit',
+    description: 'Arbeitsplatzrechner, Laptops und Server sind kritische Angriffsziele. Moderne Endpoint-Protection geht weit über klassische Antivirenlösungen hinaus.',
+    details: 'Wir implementieren Next-Generation Endpoint Protection mit Verhaltensanalyse, EDR-Funktionalität und zentralem Management. Dazu gehören auch Festplattenverschlüsselung, Patch-Management und sichere Konfigurationsrichtlinien.',
+  },
+  {
+    id: 'incident-response',
+    title: 'Reaktion auf Cybersecurity-Vorfälle',
+    description: 'Wenn ein Sicherheitsvorfall eintritt, zählt jede Minute. Schnelles und professionelles Handeln minimiert den Schaden und beschleunigt die Wiederherstellung.',
+    details: 'Wir unterstützen Sie bei der Eindämmung und Analyse von Sicherheitsvorfällen, der forensischen Untersuchung und der Wiederherstellung des Normalbetriebs. Zudem helfen wir Ihnen, einen Incident-Response-Plan zu erstellen, damit Sie für den Ernstfall vorbereitet sind.',
+  },
+];
+
+const jsonLd = [
+  ...services.map((s) => serviceSchema(s.title, s.description)),
+  breadcrumbSchema([
+    { name: 'Startseite', path: '/' },
+    { name: 'Dienstleistungen', path: '/dienstleistungen' },
+  ]),
+];
+---
+
+<BaseLayout
+  title="Dienstleistungen | Eichinger Cybersec"
+  description="Umfassende Cybersicherheitsdienstleistungen für KMU: E-Mail-Sicherheit, Penetrationstests, Schwachstellenscanning, Risikoanalyse, Zertifizierung und mehr."
+  keywords="Penetrationstests, Schwachstellenscanning, IT-Risikoanalyse, TISAX, ISO 27001, NIS2, Endpoint-Schutz, E-Mail-Sicherheit, Incident Response"
+  jsonLd={jsonLd}
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Unsere Dienstleistungen</h1>
+      <p>Maßgeschneiderte Sicherheitslösungen, die einfach zu implementieren sind und speziell auf die Bedürfnisse kleiner und mittelständischer Unternehmen abgestimmt werden.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {services.map((service, i) => (
+        <div id={service.id} class="service-detail reveal">
+          <div class="service-text">
+            <h2>{service.title}</h2>
+            <p class="lead">{service.description}</p>
+            <p>{service.details}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container cta-inner reveal">
+      <h2>Bereit für mehr Sicherheit?</h2>
+      <p>Lassen Sie uns gemeinsam Ihre IT-Sicherheit auf das nächste Level bringen.</p>
+      <a href="/#kontakt" class="btn btn-primary">Jetzt Beratung anfragen</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: #fff;
+    padding-block: var(--space-3xl);
+  }
+
+  .page-hero h1 {
+    color: #fff;
+    margin-bottom: var(--space-md);
+  }
+
+  .page-hero p {
+    font-size: var(--text-lg);
+    opacity: 0.9;
+    max-width: 650px;
+  }
+
+  .service-detail {
+    padding-block: var(--space-2xl);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .service-detail:last-child {
+    border-bottom: none;
+  }
+
+  .service-text h2 {
+    margin-bottom: var(--space-md);
+    font-size: var(--text-2xl);
+  }
+
+  .lead {
+    font-size: var(--text-base);
+    color: var(--color-text);
+    font-weight: 500;
+    margin-bottom: var(--space-md);
+    line-height: 1.7;
+  }
+
+  .service-text p:last-child {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+
+  .cta-section {
+    background: var(--color-bg);
+  }
+
+  .cta-inner {
+    text-align: center;
+  }
+
+  .cta-inner h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-inner p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xl);
+    font-size: var(--text-lg);
+  }
+
+</style>

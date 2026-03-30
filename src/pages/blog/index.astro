@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+import { breadcrumbSchema } from '../../utils/jsonld';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const jsonLd = breadcrumbSchema([
+  { name: 'Startseite', path: '/' },
+  { name: 'Blog', path: '/blog' },
+]);
+---
+
+<BaseLayout
+  title="Blog | Eichinger Cybersec"
+  description="Aktuelle Beiträge zu Cybersicherheit, IT-Sicherheit und Datenschutz für kleine und mittelständische Unternehmen."
+  keywords="Cybersicherheit Blog, IT-Sicherheit Tipps, KMU Sicherheit, Cyberangriffe Schutz"
+  jsonLd={jsonLd}
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Blog</h1>
+      <p>Wissen und Einblicke rund um Cybersicherheit für den Mittelstand.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {posts.length > 0 ? (
+        <div class="blog-grid">
+          {posts.map((post) => (
+            <BlogPostCard
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              slug={post.id}
+              tags={post.data.tags}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="empty">Bald erscheinen hier neue Beiträge – bleiben Sie dran!</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: #fff;
+    padding-block: var(--space-3xl);
+  }
+
+  .page-hero h1 {
+    color: #fff;
+    margin-bottom: var(--space-md);
+  }
+
+  .page-hero p {
+    font-size: var(--text-lg);
+    opacity: 0.9;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .empty {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: var(--text-lg);
+    padding-block: var(--space-3xl);
+  }
+</style>

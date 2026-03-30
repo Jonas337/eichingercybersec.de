@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TeamMember from '../components/TeamMember.astro';
+import { personSchema, breadcrumbSchema } from '../utils/jsonld';
+
+const jsonLd = [
+  personSchema(
+    'Jonas Eichinger',
+    'Geschäftsführer & Cybersecurity-Berater',
+    'Gründer von Eichinger Cybersec mit Expertise in IT-Sicherheit für kleine und mittelständische Unternehmen.'
+  ),
+  breadcrumbSchema([
+    { name: 'Startseite', path: '/' },
+    { name: 'Team', path: '/team' },
+  ]),
+];
+---
+
+<BaseLayout
+  title="Team | Eichinger Cybersec"
+  description="Lernen Sie das Team hinter Eichinger Cybersec kennen – Ihre Experten für Cybersicherheit im Mittelstand."
+  keywords="Jonas Eichinger, Cybersecurity Berater, IT-Sicherheit Experte, Eichinger Cybersec Team"
+  jsonLd={jsonLd}
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Unser Team</h1>
+      <p>Die Menschen hinter Eichinger Cybersec.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="team-grid reveal">
+        <TeamMember
+          name="Jonas Eichinger"
+          role="Geschäftsführer & Cybersecurity-Berater"
+          bio="Gründer von Eichinger Cybersec mit Leidenschaft für praxisnahe IT-Sicherheit. Spezialisiert auf die besonderen Anforderungen kleiner und mittelständischer Unternehmen – von Risikoanalyse über Penetrationstests bis hin zu Sicherheitszertifizierungen."
+          linkedin="https://www.linkedin.com/in/jonas337/"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: #fff;
+    padding-block: var(--space-3xl);
+  }
+
+  .page-hero h1 {
+    color: #fff;
+    margin-bottom: var(--space-md);
+  }
+
+  .page-hero p {
+    font-size: var(--text-lg);
+    opacity: 0.9;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 400px));
+    gap: var(--space-xl);
+    justify-content: center;
+  }
+</style>
